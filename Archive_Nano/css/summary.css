@@ -1,0 +1,21 @@
+html,
+body{
+    margin:0.5%;
+}
+.container{
+    flex-direction: column;
+    height:100%;
+}
+
+.nav_bar{
+    width:100vx;
+    height:20vh;
+    background-color: blue;
+    margin-left: 20%;
+}
+
+.mainpage{
+    width:100vx;
+    height:80vh;
+    background-color: red;
+}

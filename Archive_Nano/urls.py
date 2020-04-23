@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import Nano.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',Nano.views.main, name='main'),
+    path('exam/',Nano.views.exam, name='exam'),
+    path('des/',Nano.views.des, name='des'),
+    path('dict/',Nano.views.dict, name='dict'),
+    path('summary/',Nano.views.summary,name='summary'),
 ]
