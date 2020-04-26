@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나노아카이브</title>
-    <link rel="stylesheet" href="C:\Users\Jin\Desktop\Myproject\Archive_Nano\Archive_Nano\css\main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="top_bar">
             <div class="logo">
-                <img style="margin-left:50px; margin-top:50px; width:300px;height:80px;"src="C:\Users\Jin\Desktop\Myproject\Archive_Nano\Archive_Nano\pictures\logo.png">
+                <img style="margin-left:50px; margin-top:50px; width:300px;height:80px;"src="{% static 'pictures/logo.png' %}">
             </div>
             <div class="nav_bar">
             <nav id ="navbar">
@@ -29,12 +30,17 @@
         </div>
         <div class="main_page">
             <div class="middle_page">
+                <p class="title">요약자료</p>
+                {% for X in Descripts%}
                 <div class="semi_page">
-                    <p class="title">요약자료</p>
-                    <a href="#">요약자료 더 보기</a>
+                    <p class="classname">강의-{{X.Classname}}</p>
+                    <p class="text">{{X.Comment}}</p>
                 </div>
-
+                {% endfor %}
+                <a href="#">요약자료 더 보기</a>
             </div>
+            
+
             <div class="middle_page">
                 <div class="semi_page">
                     <p class="title">문제풀이</p>

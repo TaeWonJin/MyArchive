@@ -16,12 +16,18 @@
 }
 .middle_page{
     display:flex;
+    flex-direction: column;
     flex:1;
     border:2px solid black;
     border-radius:50px;
     margin-top:1%;
     align-items:center;
     justify-content: center;
+}
+
+.semi_page{
+    display:flex;
+    flex-direction: column;
 }
 .nav_bar{
     align-items: center;

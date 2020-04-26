@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
+from .models import Descript, Images
 # Create your views here.
 
 def main(request):
-    return render(request,'main.html')
+    Descripts = Descript.objects.all()
+    PImages = Images.objects.all()
+    return render(request,'main.html',{'Descripts':Descripts,'PImages':PImages})
 
 def dict(request):
     return render(request,'dict.html')
