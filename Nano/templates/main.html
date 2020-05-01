@@ -1,62 +1,44 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나노아카이브</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-</head>
-<body>
-    <div class="container">
-        <div class="top_bar">
-            <div class="logo">
-                <img style="margin-left:50px; margin-top:50px; width:300px;height:80px;"src="{% static 'pictures/logo.png' %}">
-            </div>
-            <div class="nav_bar">
-            <nav id ="navbar">
-                <ul>
-                    <li><a class ="menulink" href="{% url 'des' %}">사이트 소개</a></li>
-                    <li><a class ="menulink" href="{% url 'summary' %}">요약자료</a></li>
-                    <li><a class ="menulink" href="{% url 'dict' %}">단어사전</a></li>
-                    <li><a class ="menulink" href="{% url 'exam' %}">문제풀이</a></li>
-                </ul>
-            </nav>
-            </div>
-            <div class="search_bar">
-                <h3>검색창 들어갈곳/회원정보나기타뭘넣자</h3>
-            </div>
+{% extends "base.html" %}
 
+{% load static %}
+
+{% block title%}
+나노아카이브
+{% endblock title %}
+
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock css %}
+
+{% block content%}
+    
+<div class="main_page">
+    <div class="middle_page">
+        <p class="title">요약자료</p>
+        {% for X in Descripts%}
+        <div class="semi_page">
+            <p class="classname">강의-{{X.Classname}}</p>
+            <p class="text">{{X.Comment}}</p>
         </div>
-        <div class="main_page">
-            <div class="middle_page">
-                <p class="title">요약자료</p>
-                {% for X in Descripts%}
-                <div class="semi_page">
-                    <p class="classname">강의-{{X.Classname}}</p>
-                    <p class="text">{{X.Comment}}</p>
-                </div>
-                {% endfor %}
-                <a href="#">요약자료 더 보기</a>
-            </div>
+        {% endfor %}
+        <a href="#">요약자료 더 보기</a>
+    </div>
             
 
-            <div class="middle_page">
-                <div class="semi_page">
-                    <p class="title">문제풀이</p>
-                    <a href="#">문제풀이 더 보기</a>
-                </div>
+    <div class="middle_page">
+        <div class="semi_page">
+            <p class="title">문제풀이</p>
+            <a href="#">문제풀이 더 보기</a>
+        </div>
 
-            </div>
-            <div class="middle_page">
-                <div class="semi_page">
-                    <p class="title">단어사전</p>
-                    <a href="#">단어사전 더 보기</a>
-
-                </div>
-            </div>
+    </div>
+    <div class="middle_page">
+        <div class="semi_page">
+            <p class="title">단어사전</p>
+            <a href="#">단어사전 더 보기</a>
 
         </div>
     </div>
-</body>
-</html>
+
+</div>
+{% endblock %}

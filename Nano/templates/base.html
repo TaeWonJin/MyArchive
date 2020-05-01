@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
+
+    {% block css %}{% endblock css %}
+</head>
+<body>
+    <div class="container">
+        <div class="top_bar">
+            <div class="logo">
+                <img style="margin-left:20px; margin-top:20px; width:300px;height:80px;"src="{% static 'pictures/logo.png' %}">
+            </div>
+            <div class="nav_bar">
+            <nav id ="navbar">
+                <ul>
+                    <li><a class ="menulink" href="{% url 'des' %}">사이트 소개</a></li>
+                    <li><a class ="menulink" href="{% url 'summary' %}">요약자료</a></li>
+                    <li><a class ="menulink" href="{% url 'dict' %}">단어사전</a></li>
+                    <li><a class ="menulink" href="{% url 'exam' %}">문제풀이</a></li>
+                </ul>
+            </nav>
+            </div>
+            <div class="search_bar">
+                <form action = "{% url 'main' %}" method='GET'>
+                    <input class="input_button" type="image" src="{% static 'pictures/find.png'%}" alt="Submit">
+                    <input class="input_box" type="text" name="query" value="{{query}}" placeholder="과목명, 교수명으로 검색">
+                </form>
+            </div>
+            
+        </div>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+            <!-- </div> -->
+        </div>
+    </div>
+</body>
+</html>

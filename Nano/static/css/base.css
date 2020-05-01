@@ -1,0 +1,83 @@
+.container{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+}
+
+.content{
+    height: 80%;
+    width: 100%;
+    display:flex;
+}
+
+.top_bar{
+    height: 20%;
+    width: 100%;
+    display: flex;
+}
+
+.nav_bar{
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top:10px;
+    display: flex;
+}
+.search_bar{
+    align-items:left;
+    flex: 1.4;
+    text-align: left;
+}
+
+.logo{
+    align-items: center;
+    justify-content: center;
+    flex:0.8;
+    height:30px;
+}
+
+
+#navbar ul li {
+    list-style:none;
+    color:white;
+    background-color: #2d2d2d;
+    float:left;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    margin: 1px;
+}
+
+#navbar .menulink{
+    text-decoration: none;
+    color:white;
+    display:block;
+    width:250px;
+    font-size:20px;
+    font-weight:bold;
+    font-family:"Trebuchet MS",Dotum,Arial;
+}
+
+#navbar .menulink:hover{
+    color:red;
+    background-color: #4d4d4d;
+}
+
+
+.input_box{
+    padding: 20px;
+    border: 1.8px solid #004077;
+    border-radius : 30px; 
+    width:400px;
+    height:15px;            
+    font-size: 17px;
+}
+.input_button {
+    width:32px;
+    height:32px;
+    cursor: pointer;
+    padding-left: 15px;
+    margin-top: 30px;
+}
