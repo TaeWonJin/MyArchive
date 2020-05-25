@@ -12,18 +12,58 @@ def user_path(instance,filename):
 
     return '%s/%s.%s' % (instance.Descript, pid, extension)
 
-class Descript(models.Model):
-    Classname = models.CharField(max_length=50, default = "전자기학")
-    Text = models.TextField(max_length = 500000)
-    Thumname_image = models.ImageField(blank = True) 
-    Comment = models.CharField(max_length = 255)
-
 class Images(models.Model):
-    Descript = models.ForeignKey(Descript, blank = False, null =False, on_delete=models.CASCADE)
     photo = ProcessedImageField(
-        upload_to =  user_path,
+       upload_to =  user_path,
         processors = [ResizeToFill(80,80)],
         format = 'JPEG',
         options={'qulity':60},
         null=True
     )
+
+class WordDict(models.Model):
+    word = models.CharField(max_length=30,blank=False,primary_key=True)
+    summary = models.TextField(blank=False)
+
+    def __str__(self):
+        return '%s' %(self.word)
+
+class WordImg(models.Model):
+    word = models.CharField(max_length=30,blank=False)
+    image = models.ImageField(upload_to='wordimg',blank=False)
+
+    def __str__(self):
+        return '%s' %(self.word)
+
+class Summary(models.Model):
+    title = models.CharField(max_length=30,blank = False,primary_key=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return '%s' %(self.title)
+
+class SummaryImg(models.Model):
+    title = models.CharField(max_length=30,blank = False)
+    image = models.ImageField(upload_to="summaryimg",blank=False)
+    figure = models.TextField()
+    descript = models.TextField()
+
+    def __str__(self):
+        return '%s' %(self.title)
+
+class Solution(models.Model):
+    RECOMMEND_CHOICES = (
+        (1,'★☆☆☆☆'),
+        (2,'★★☆☆☆'),
+        (3,'★★★☆☆'),
+        (4,'★★★★☆'),
+        (5,'★★★★★'),
+    )
+
+    sol_id = models.CharField(max_length=30)
+    problem = models.ImageField(upload_to="solutionimg",blank=False)
+    solution = models.TextField()
+    rating = models.IntegerField(choices=RECOMMEND_CHOICES )
+
+    def __str__(self):
+        return '%s' %(self.sol_id)

@@ -1,3 +1,23 @@
-{% extends "base.html" %}
-
-{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples</title>
+</head>
+<body>
+    <div class="container">
+        <p>{{content.sol_id}}</p>
+        <div class="problem">
+            <img src={{content.problem.url}}>
+            {{content.rating}}
+        </div>
+        <div class="solution">
+            {{content.solution}}
+        </div>
+        <div class="buttons">
+            이동다음어쩌구버튼들
+        </div>
+    </div>
+</body>
+</html>

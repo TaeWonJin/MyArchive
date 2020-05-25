@@ -1,20 +1,21 @@
-from django.shortcuts import render
-from .models import Descript, Images
+from django.shortcuts import render,get_object_or_404
+from .models import WordDict,WordImg,SummaryImg,Summary,Solution
 # Create your views here.
 
 def main(request):
-    Descripts = Descript.objects.all()
-    PImages = Images.objects.all()
-    return render(request,'main.html',{'Descripts':Descripts,'PImages':PImages})
 
-def dict(request):
-    return render(request,'dict.html')
+    return render(request,'main.html',)
 
-def exam(request):
-    return render(request,'exam.html')
+def dict(request,pk):
+    word = get_object_or_404(WordDict, pk=pk)
+    wordimg = WordImg.objects.all
+    return render(request,'dict.html',{'word':word,'image':wordimg})
 
-def des(request):
-    return render(request,'description.html')
+def exam(request,pk):
+    content = get_object_or_404(Solution,pk=pk)
+    return render(request,'exam.html',{'content':content})
     
-def summary(request):
-    return render(request,'summary.html')
+def summary(request,pk):
+    content = get_object_or_404(Summary,pk=pk)
+    summaryimg = SummaryImg.objects.all
+    return render(request,'summary.html',{'content':content,'image':summaryimg})

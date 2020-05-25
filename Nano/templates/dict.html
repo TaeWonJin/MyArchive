@@ -1,3 +1,30 @@
-{% extends "base.html" %}
-
-{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+</head>
+<body>
+    <div class="contianer">
+        <div class="top_title">
+            <p class="title">{{word.word}}</p>
+        </div>
+        <div class="middle">
+            <div class="text">
+                {{word.summary}}
+            </div>
+            <div class="picture">
+                {% for img in image %}
+                {% if img.word == word.word %}
+                <img src={{img.image.url}}>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="buttons">
+            이동 다음 어쩌구 버튼들
+        </div>
+    </div>
+</body>
+</html>

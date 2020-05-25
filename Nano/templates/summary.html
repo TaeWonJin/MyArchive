@@ -1,3 +1,29 @@
-{% extends "base.html" %}
-
-{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <p>{{content.title}}</p>
+        </div>
+        <div class="left_box">
+            <div class="text">
+                {{content.content}}
+            </div>
+        </div>
+        <div class="right_box">
+            <div class="pictures">
+                {% for img in image %}
+                {% if img.word == content.word %}
+                <img src={{img.image.url}}>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
